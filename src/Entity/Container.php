@@ -19,8 +19,8 @@ class Container
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(type: Types::ARRAY)]
-    private array $content = [];
+    #[ORM\Column(length: 255)]
+    private ?string $content = null;
 
     public function getId(): ?int
     {
@@ -39,15 +39,17 @@ class Container
         return $this;
     }
 
-    public function getContent(): array
+    public function getContent(): ?string
     {
         return $this->content;
     }
 
-    public function setContent(array $content): static
+    public function setContent(string $content): static
     {
         $this->content = $content;
 
         return $this;
     }
+
+    
 }

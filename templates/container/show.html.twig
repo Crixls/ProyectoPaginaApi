@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Container{% endblock %}
+
+{% block body %}
+    <h1>Container</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ container.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ container.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ container.content ? container.content|join(', ') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_container_index') }}">back to list</a>
+
+    <a href="{{ path('app_container_edit', {'id': container.id}) }}">edit</a>
+
+    {{ include('container/_delete_form.html.twig') }}
+{% endblock %}
